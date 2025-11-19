@@ -31,51 +31,9 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Modal functionality
-const consultationModal = document.getElementById('consultationModal');
-const closeBtn = document.querySelector('.close');
-const consultationForm = document.getElementById('consultationForm');
-
-function openConsultationModal() {
-    consultationModal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-}
-
-function closeConsultationModal() {
-    consultationModal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-closeBtn.addEventListener('click', closeConsultationModal);
-
-window.addEventListener('click', (e) => {
-    if (e.target === consultationModal) {
-        closeConsultationModal();
-    }
-});
-
 // Open Google Form directly
 function openConsultationForm() {
     window.open('https://docs.google.com/forms/d/e/1FAIpQLSdh0FpPUNTjz-28Bk-zv989NRgywdvY8Pyjpa5WIPD-AVctGA/viewform?usp=header', '_blank');
-}
-
-// Form submission (for modal form if needed)
-if (consultationForm) {
-    consultationForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(consultationForm);
-        const data = Object.fromEntries(formData);
-        
-        // Here you would typically send the data to your backend
-        console.log('Consultation form submitted:', data);
-        
-        // Show success message
-        alert('Thank you! Our real estate expert will contact you within 30 minutes to schedule your free consultation.');
-        closeConsultationModal();
-        consultationForm.reset();
-    });
 }
 
 // WhatsApp integration
@@ -220,21 +178,37 @@ function addRippleEffect() {
     });
 }
 
-// Simple Map functionality
+// Realistic Map functionality
 function initMapInteractions() {
-    const areaItems = document.querySelectorAll('.area-item');
+    const locationMarkers = document.querySelectorAll('.location-marker');
     const selectedAreaDisplay = document.getElementById('selectedArea');
     
-    areaItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const areaName = item.getAttribute('data-area');
+    locationMarkers.forEach(marker => {
+        marker.addEventListener('click', () => {
+            const areaName = marker.getAttribute('data-area');
+            const region = marker.classList[1]; // north, east, central, south
+            
+            // Update selected area display
             selectedAreaDisplay.textContent = `Selected Area: ${areaName}`;
             selectedAreaDisplay.style.animation = 'pulse 0.5s ease';
+            
+            // Add region-specific styling
+            selectedAreaDisplay.className = 'selected-area';
+            selectedAreaDisplay.classList.add(region);
             
             // Remove animation after it completes
             setTimeout(() => {
                 selectedAreaDisplay.style.animation = '';
             }, 500);
+        });
+        
+        // Add hover effects
+        marker.addEventListener('mouseenter', () => {
+            marker.style.zIndex = '100';
+        });
+        
+        marker.addEventListener('mouseleave', () => {
+            marker.style.zIndex = '5';
         });
     });
 }
@@ -268,6 +242,27 @@ document.addEventListener('DOMContentLoaded', () => {
         .btn-primary, .btn-secondary, .nav-button {
             position: relative;
             overflow: hidden;
+        }
+        
+        /* Region-specific selected area styles */
+        .selected-area.north {
+            background: linear-gradient(135deg, #4285F4 0%, #5a95f5 100%);
+            color: white;
+        }
+        
+        .selected-area.east {
+            background: linear-gradient(135deg, #34A853 0%, #4cba6c 100%);
+            color: white;
+        }
+        
+        .selected-area.central {
+            background: linear-gradient(135deg, #FBBC05 0%, #fccd47 100%);
+            color: var(--primary);
+        }
+        
+        .selected-area.south {
+            background: linear-gradient(135deg, #EA4335 0%, #ed6559 100%);
+            color: white;
         }
         
         /* AOS animations */
