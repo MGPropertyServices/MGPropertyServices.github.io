@@ -1454,7 +1454,7 @@ body {
     }
 }
 
-/* Responsive Design */
+/* Responsive Design - Mobile Fixes */
 @media (max-width: 768px) {
     .nav-menu {
         position: fixed;
@@ -1599,6 +1599,43 @@ body {
         height: 100px;
         font-size: 3rem;
     }
+    
+    /* What Makes Us Different Mobile Fixes */
+    .comparison-tabs {
+        overflow-x: auto;
+    }
+    
+    .tab-buttons {
+        flex-direction: column;
+    }
+    
+    .tab-btn {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .comparison-table {
+        min-width: 600px;
+    }
+    
+    .table-header {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0.5rem;
+        padding: 1rem;
+        font-size: 0.8rem;
+    }
+    
+    .table-row {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+    
+    .table-cell {
+        font-size: 0.85rem;
+        padding: 0.3rem 0;
+        word-break: break-word;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1662,5 +1699,18 @@ body {
     .home-experience-section .benefit-card {
         width: 100%;
         max-width: 280px;
+    }
+    
+    /* What Makes Us Different Small Mobile Fixes */
+    .comparison-table {
+        min-width: 500px;
+    }
+    
+    .table-header {
+        font-size: 0.75rem;
+    }
+    
+    .table-cell {
+        font-size: 0.8rem;
     }
 }
