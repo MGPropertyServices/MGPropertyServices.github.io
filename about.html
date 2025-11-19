@@ -16,11 +16,11 @@
                 <span>MG PROPERTY SERVICES</span>
             </div>
             <div class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
+                <a href="#home" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#process" class="nav-link">Process</a>
                 <a href="#team" class="nav-link">Our Team</a>
-                <button class="nav-button" onclick="openConsultationForm()">Book Consultation</button>
+                <button class="nav-button" id="navConsultationBtn">Book Consultation</button>
             </div>
             <div class="hamburger">
                 <span></span>
@@ -48,10 +48,10 @@
                     Bangalore's most trustworthy real estate advisory — helping you buy the right home with clarity, confidence, and expert guidance.
                 </p>
                 <div class="hero-buttons">
-                    <button class="btn-primary" onclick="openConsultationForm()">
+                    <button class="btn-primary" id="heroConsultationBtn">
                         <i class="fas fa-home"></i> Find Your Perfect Home
                     </button>
-                    <button class="btn-secondary" onclick="openConsultationForm()">
+                    <button class="btn-secondary" id="heroExpertBtn">
                         <i class="fas fa-headset"></i> Talk to an Expert
                     </button>
                 </div>
@@ -310,8 +310,9 @@
             <div class="team-grid">
                 <div class="team-member">
                     <div class="member-photo">
-                        <img src="kushal-gowda.jpg" alt="Kushal Gowda K M" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <i class="fas fa-user-tie" style="display: none;"></i>
+                        <div class="photo-placeholder">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
                     </div>
                     <h3>Kushal Gowda K M</h3>
                     <p class="member-role">CEO & Founder</p>
@@ -326,8 +327,9 @@
                 </div>
                 <div class="team-member">
                     <div class="member-photo">
-                        <img src="jeevan-ks.jpg" alt="Jeevan K S" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <i class="fas fa-laptop-code" style="display: none;"></i>
+                        <div class="photo-placeholder">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
                     </div>
                     <h3>Jeevan K S</h3>
                     <p class="member-role">Web Developer & Digital Marketing</p>
@@ -387,7 +389,7 @@
                 <div class="solution-cta">
                     <h3>MG PROPERTY SERVICES FIXES EVERY ONE OF THESE PROBLEMS</h3>
                     <div class="solution-button-container">
-                        <button class="btn-primary large" onclick="openConsultationForm()">
+                        <button class="btn-primary large" id="stressFreeBtn">
                             <i class="fas fa-magic"></i> Experience Stress-Free Home Buying
                         </button>
                     </div>
@@ -606,10 +608,10 @@
                 <h2>READY TO FIND YOUR DREAM HOME?</h2>
                 <p>Talk to our experts and get personalized property recommendations today.</p>
                 <div class="cta-buttons">
-                    <button class="btn-primary large" onclick="openConsultationForm()">
+                    <button class="btn-primary large" id="finalConsultationBtn">
                         <i class="fas fa-calendar-check"></i> Book a Free Consultation
                     </button>
-                    <button class="btn-whatsapp" onclick="openWhatsApp()">
+                    <button class="btn-whatsapp" id="whatsappBtn">
                         <i class="fab fa-whatsapp"></i> WhatsApp Us
                     </button>
                 </div>
@@ -677,7 +679,7 @@
     </footer>
 
     <!-- WhatsApp Float -->
-    <div class="whatsapp-float" onclick="openWhatsApp()">
+    <div class="whatsapp-float" id="whatsappFloat">
         <i class="fab fa-whatsapp"></i>
     </div>
 
