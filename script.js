@@ -54,11 +54,12 @@ window.addEventListener('click', (e) => {
     }
 });
 
-// Smooth scrolling
-function scrollToBooking() {
-    openModal();
+// Google Form Integration
+function openGoogleForm() {
+    window.open('https://docs.google.com/forms/d/e/1FAIpQLSdh0FpPUNTjz-28Bk-zv989NRgywdvY8Pyjpa5WIPD-AVctGA/viewform?usp=header', '_blank');
 }
 
+// Smooth scrolling
 function scrollToStages() {
     document.getElementById('stages').scrollIntoView({
         behavior: 'smooth'
