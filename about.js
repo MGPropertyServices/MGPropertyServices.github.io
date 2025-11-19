@@ -31,17 +31,18 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Open Google Form directly
+// Google Forms Integration - Fixed
 function openConsultationForm() {
-    window.open('https://docs.google.com/forms/d/e/1FAIpQLSdh0FpPUNTjz-28Bk-zv989NRgywdvY8Pyjpa5WIPD-AVctGA/viewform?usp=header', '_blank');
+    const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdh0FpPUNTjz-28Bk-zv989NRgywdvY8Pyjpa5WIPD-AVctGA/viewform?usp=header';
+    window.open(googleFormUrl, '_blank', 'noopener,noreferrer');
 }
 
-// WhatsApp integration
+// WhatsApp Integration - Fixed
 function openWhatsApp() {
     const phoneNumber = '919880166879';
     const message = 'Hello! I would like to get more information about MG Property Services and book a free consultation.';
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
+    window.open(url, '_blank', 'noopener,noreferrer');
 }
 
 // Enhanced Navbar scroll behavior
@@ -154,7 +155,7 @@ function initParticles() {
 
 // Add ripple effect to buttons
 function addRippleEffect() {
-    const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .nav-button');
+    const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .nav-button, .btn-whatsapp');
     
     buttons.forEach(button => {
         button.addEventListener('click', function(e) {
@@ -213,6 +214,39 @@ function initMapInteractions() {
     });
 }
 
+// Button Event Listeners - Fixed
+function initializeButtonListeners() {
+    // Navigation button
+    const navConsultationBtn = document.getElementById('navConsultationBtn');
+    if (navConsultationBtn) {
+        navConsultationBtn.addEventListener('click', openConsultationForm);
+    }
+    
+    // Hero section buttons
+    const heroConsultationBtn = document.getElementById('heroConsultationBtn');
+    const heroExpertBtn = document.getElementById('heroExpertBtn');
+    if (heroConsultationBtn) heroConsultationBtn.addEventListener('click', openConsultationForm);
+    if (heroExpertBtn) heroExpertBtn.addEventListener('click', openConsultationForm);
+    
+    // Stress-free button
+    const stressFreeBtn = document.getElementById('stressFreeBtn');
+    if (stressFreeBtn) {
+        stressFreeBtn.addEventListener('click', openConsultationForm);
+    }
+    
+    // Final CTA buttons
+    const finalConsultationBtn = document.getElementById('finalConsultationBtn');
+    const whatsappBtn = document.getElementById('whatsappBtn');
+    if (finalConsultationBtn) finalConsultationBtn.addEventListener('click', openConsultationForm);
+    if (whatsappBtn) whatsappBtn.addEventListener('click', openWhatsApp);
+    
+    // WhatsApp float button
+    const whatsappFloat = document.getElementById('whatsappFloat');
+    if (whatsappFloat) {
+        whatsappFloat.addEventListener('click', openWhatsApp);
+    }
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize components
@@ -220,6 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initParticles();
     addRippleEffect();
     initMapInteractions();
+    initializeButtonListeners();
     
     // Add CSS for ripple effect
     const style = document.createElement('style');
@@ -239,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         
-        .btn-primary, .btn-secondary, .nav-button {
+        .btn-primary, .btn-secondary, .nav-button, .btn-whatsapp {
             position: relative;
             overflow: hidden;
         }
@@ -303,4 +338,18 @@ window.addEventListener('scroll', () => {
         const rate = scrolled * -0.5;
         heroContent.style.transform = `translateY(${rate}px)`;
     }
+});
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
 });
