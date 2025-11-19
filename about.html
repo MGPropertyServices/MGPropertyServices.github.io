@@ -16,11 +16,11 @@
                 <span>MG PROPERTY SERVICES</span>
             </div>
             <div class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
+                <a href="#home" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#process" class="nav-link">Process</a>
                 <a href="#team" class="nav-link">Our Team</a>
-                <button class="nav-button" id="navConsultationBtn">Book Consultation</button>
+                <button class="nav-button" onclick="openGoogleForm()">Book Consultation</button>
             </div>
             <div class="hamburger">
                 <span></span>
@@ -48,10 +48,10 @@
                     Bangalore's most trustworthy real estate advisory — helping you buy the right home with clarity, confidence, and expert guidance.
                 </p>
                 <div class="hero-buttons">
-                    <button class="btn-primary" id="heroConsultationBtn">
+                    <button class="btn-primary" onclick="openGoogleForm()">
                         <i class="fas fa-home"></i> Find Your Perfect Home
                     </button>
-                    <button class="btn-secondary" id="heroExpertBtn">
+                    <button class="btn-secondary" onclick="openGoogleForm()">
                         <i class="fas fa-headset"></i> Talk to an Expert
                     </button>
                 </div>
@@ -389,7 +389,7 @@
                 <div class="solution-cta">
                     <h3>MG PROPERTY SERVICES FIXES EVERY ONE OF THESE PROBLEMS</h3>
                     <div class="solution-button-container">
-                        <button class="btn-primary large" id="stressFreeBtn">
+                        <button class="btn-primary large" onclick="openGoogleForm()">
                             <i class="fas fa-magic"></i> Experience Stress-Free Home Buying
                         </button>
                     </div>
@@ -475,128 +475,53 @@
             </div>
             <div class="map-visual">
                 <div class="bangalore-map">
-                    <!-- Realistic Bangalore Map -->
-                    <div class="realistic-map">
-                        <!-- Map Base -->
-                        <div class="map-base">
-                            <!-- Outer Ring Road -->
-                            <div class="road orr"></div>
-                            
-                            <!-- Major Roads -->
-                            <div class="road mg-road"></div>
-                            <div class="road hosur-road"></div>
-                            <div class="road bellary-road"></div>
-                            <div class="road old-madras-road"></div>
-                            <div class="road bannerghatta-road"></div>
-                            
-                            <!-- Water Bodies -->
-                            <div class="water-body ulsoor-lake"></div>
-                            <div class="water-body sankey-tank"></div>
-                            <div class="water-body hebbal-lake"></div>
-                            
-                            <!-- Green Areas -->
-                            <div class="green-area cubbon-park"></div>
-                            <div class="green-area lalbagh"></div>
+                    <!-- Simple Map Design -->
+                    <div class="simple-map">
+                        <div class="map-region north">
+                            <h4>North Bangalore</h4>
+                            <div class="region-areas">
+                                <div class="area-item" data-area="Hebbal">Hebbal</div>
+                                <div class="area-item" data-area="Yelahanka">Yelahanka</div>
+                                <div class="area-item" data-area="Manyata Tech Park">Manyata Tech Park</div>
+                                <div class="area-item" data-area="Jalahalli">Jalahalli</div>
+                                <div class="area-item" data-area="Yeshwanthpur">Yeshwanthpur</div>
+                            </div>
                         </div>
-
-                        <!-- Location Markers -->
-                        <div class="location-marker north" style="top: 20%; left: 45%;" data-area="Hebbal">
-                            <div class="marker-dot"></div>
-                            <div class="marker-label">Hebbal</div>
+                        <div class="map-region east">
+                            <h4>East Bangalore</h4>
+                            <div class="region-areas">
+                                <div class="area-item" data-area="Whitefield">Whitefield</div>
+                                <div class="area-item" data-area="KR Puram">KR Puram</div>
+                                <div class="area-item" data-area="Indiranagar">Indiranagar</div>
+                                <div class="area-item" data-area="Marathahalli">Marathahalli</div>
+                                <div class="area-item" data-area="CV Raman Nagar">CV Raman Nagar</div>
+                            </div>
                         </div>
-                        <div class="location-marker north" style="top: 15%; left: 48%;" data-area="Yelahanka">
-                            <div class="marker-dot"></div>
-                            <div class="marker-label">Yelahanka</div>
+                        <div class="map-region central">
+                            <h4>Central Bangalore</h4>
+                            <div class="region-areas">
+                                <div class="area-item" data-area="MG Road">MG Road</div>
+                                <div class="area-item" data-area="Koramangala">Koramangala</div>
+                                <div class="area-item" data-area="HSR Layout">HSR Layout</div>
+                                <div class="area-item" data-area="Jayanagar">Jayanagar</div>
+                                <div class="area-item" data-area="Malleswaram">Malleswaram</div>
+                            </div>
                         </div>
-                        <div class="location-marker north" style="top: 25%; left: 50%;" data-area="Manyata Tech Park">
-                            <div class="marker-dot"></div>
-                            <div class="marker-label">Manyata</div>
-                        </div>
-                        <div class="location-marker north" style="top: 30%; left: 42%;" data-area="Yeshwanthpur">
-                            <div class="marker-dot"></div>
-                            <div class="marker-label">Yeshwanthpur</div>
-                        </div>
-
-                        <div class="location-marker east" style="top: 35%; left: 60%;" data-area="Whitefield">
-                            <div class="marker-dot"></div>
-                            <div class="marker-label">Whitefield</div>
-                        </div>
-                        <div class="location-marker east" style="top: 40%; left: 58%;" data-area="KR Puram">
-                            <div class="marker-dot"></div>
-                            <div class="marker-label">KR Puram</div>
-                        </div>
-                        <div class="location-marker east" style="top: 45%; left: 55%;" data-area="Indiranagar">
-                            <div class="marker-dot"></div>
-                            <div class="marker-label">Indiranagar</div>
-                        </div>
-                        <div class="location-marker east" style="top: 50%; left: 62%;" data-area="Marathahalli">
-                            <div class="marker-dot"></div>
-                            <div class="marker-label">Marathahalli</div>
-                        </div>
-
-                        <div class="location-marker central" style="top: 45%; left: 46%;" data-area="MG Road">
-                            <div class="marker-dot"></div>
-                            <div class="marker-label">MG Road</div>
-                        </div>
-                        <div class="location-marker central" style="top: 50%; left: 48%;" data-area="Koramangala">
-                            <div class="marker-dot"></div>
-                            <div class="marker-label">Koramangala</div>
-                        </div>
-                        <div class="location-marker central" style="top: 55%; left: 45%;" data-area="HSR Layout">
-                            <div class="marker-dot"></div>
-                            <div class="marker-label">HSR Layout</div>
-                        </div>
-                        <div class="location-marker central" style="top: 42%; left: 44%;" data-area="Malleswaram">
-                            <div class="marker-dot"></div>
-                            <div class="marker-label">Malleswaram</div>
-                        </div>
-
-                        <div class="location-marker south" style="top: 65%; left: 48%;" data-area="JP Nagar">
-                            <div class="marker-dot"></div>
-                            <div class="marker-label">JP Nagar</div>
-                        </div>
-                        <div class="location-marker south" style="top: 70%; left: 50%;" data-area="Bannerghatta Road">
-                            <div class="marker-dot"></div>
-                            <div class="marker-label">Bannerghatta Rd</div>
-                        </div>
-                        <div class="location-marker south" style="top: 68%; left: 53%;" data-area="BTM Layout">
-                            <div class="marker-dot"></div>
-                            <div class="marker-label">BTM Layout</div>
-                        </div>
-                        <div class="location-marker south" style="top: 72%; left: 55%;" data-area="Electronic City">
-                            <div class="marker-dot"></div>
-                            <div class="marker-label">Electronic City</div>
-                        </div>
-                        <div class="location-marker south" style="top: 60%; left: 58%;" data-area="Sarjapur Road">
-                            <div class="marker-dot"></div>
-                            <div class="marker-label">Sarjapur Rd</div>
+                        <div class="map-region south">
+                            <h4>South Bangalore</h4>
+                            <div class="region-areas">
+                                <div class="area-item" data-area="JP Nagar">JP Nagar</div>
+                                <div class="area-item" data-area="Bannerghatta Road">Bannerghatta Road</div>
+                                <div class="area-item" data-area="BTM Layout">BTM Layout</div>
+                                <div class="area-item" data-area="Electronic City">Electronic City</div>
+                                <div class="area-item" data-area="Sarjapur Road">Sarjapur Road</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="selected-area-display">
-                <div id="selectedArea" class="selected-area">Click on any location to see details</div>
-            </div>
-            <div class="map-legend">
-                <h4>Areas We Serve</h4>
-                <div class="legend-items">
-                    <div class="legend-item">
-                        <span class="legend-color north"></span>
-                        <span>North Bangalore</span>
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-color east"></span>
-                        <span>East Bangalore</span>
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-color central"></span>
-                        <span>Central Bangalore</span>
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-color south"></span>
-                        <span>South Bangalore</span>
-                    </div>
-                </div>
+                <div id="selectedArea" class="selected-area">Click on any area to see details</div>
             </div>
         </div>
     </section>
@@ -608,10 +533,10 @@
                 <h2>READY TO FIND YOUR DREAM HOME?</h2>
                 <p>Talk to our experts and get personalized property recommendations today.</p>
                 <div class="cta-buttons">
-                    <button class="btn-primary large" id="finalConsultationBtn">
+                    <button class="btn-primary large" onclick="openGoogleForm()">
                         <i class="fas fa-calendar-check"></i> Book a Free Consultation
                     </button>
-                    <button class="btn-whatsapp" id="whatsappBtn">
+                    <button class="btn-whatsapp" onclick="openWhatsApp()">
                         <i class="fab fa-whatsapp"></i> WhatsApp Us
                     </button>
                 </div>
@@ -679,11 +604,10 @@
     </footer>
 
     <!-- WhatsApp Float -->
-    <div class="whatsapp-float" id="whatsappFloat">
+    <div class="whatsapp-float" onclick="openWhatsApp()">
         <i class="fab fa-whatsapp"></i>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
