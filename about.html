@@ -473,53 +473,128 @@
             </div>
             <div class="map-visual">
                 <div class="bangalore-map">
-                    <!-- Simple Map Design -->
-                    <div class="simple-map">
-                        <div class="map-region north">
-                            <h4>North Bangalore</h4>
-                            <div class="region-areas">
-                                <div class="area-item" data-area="Hebbal">Hebbal</div>
-                                <div class="area-item" data-area="Yelahanka">Yelahanka</div>
-                                <div class="area-item" data-area="Manyata Tech Park">Manyata Tech Park</div>
-                                <div class="area-item" data-area="Jalahalli">Jalahalli</div>
-                                <div class="area-item" data-area="Yeshwanthpur">Yeshwanthpur</div>
-                            </div>
+                    <!-- Realistic Bangalore Map -->
+                    <div class="realistic-map">
+                        <!-- Map Base -->
+                        <div class="map-base">
+                            <!-- Outer Ring Road -->
+                            <div class="road orr"></div>
+                            
+                            <!-- Major Roads -->
+                            <div class="road mg-road"></div>
+                            <div class="road hosur-road"></div>
+                            <div class="road bellary-road"></div>
+                            <div class="road old-madras-road"></div>
+                            <div class="road bannerghatta-road"></div>
+                            
+                            <!-- Water Bodies -->
+                            <div class="water-body ulsoor-lake"></div>
+                            <div class="water-body sankey-tank"></div>
+                            <div class="water-body hebbal-lake"></div>
+                            
+                            <!-- Green Areas -->
+                            <div class="green-area cubbon-park"></div>
+                            <div class="green-area lalbagh"></div>
                         </div>
-                        <div class="map-region east">
-                            <h4>East Bangalore</h4>
-                            <div class="region-areas">
-                                <div class="area-item" data-area="Whitefield">Whitefield</div>
-                                <div class="area-item" data-area="KR Puram">KR Puram</div>
-                                <div class="area-item" data-area="Indiranagar">Indiranagar</div>
-                                <div class="area-item" data-area="Marathahalli">Marathahalli</div>
-                                <div class="area-item" data-area="CV Raman Nagar">CV Raman Nagar</div>
-                            </div>
+
+                        <!-- Location Markers -->
+                        <div class="location-marker north" style="top: 20%; left: 45%;" data-area="Hebbal">
+                            <div class="marker-dot"></div>
+                            <div class="marker-label">Hebbal</div>
                         </div>
-                        <div class="map-region central">
-                            <h4>Central Bangalore</h4>
-                            <div class="region-areas">
-                                <div class="area-item" data-area="MG Road">MG Road</div>
-                                <div class="area-item" data-area="Koramangala">Koramangala</div>
-                                <div class="area-item" data-area="HSR Layout">HSR Layout</div>
-                                <div class="area-item" data-area="Jayanagar">Jayanagar</div>
-                                <div class="area-item" data-area="Malleswaram">Malleswaram</div>
-                            </div>
+                        <div class="location-marker north" style="top: 15%; left: 48%;" data-area="Yelahanka">
+                            <div class="marker-dot"></div>
+                            <div class="marker-label">Yelahanka</div>
                         </div>
-                        <div class="map-region south">
-                            <h4>South Bangalore</h4>
-                            <div class="region-areas">
-                                <div class="area-item" data-area="JP Nagar">JP Nagar</div>
-                                <div class="area-item" data-area="Bannerghatta Road">Bannerghatta Road</div>
-                                <div class="area-item" data-area="BTM Layout">BTM Layout</div>
-                                <div class="area-item" data-area="Electronic City">Electronic City</div>
-                                <div class="area-item" data-area="Sarjapur Road">Sarjapur Road</div>
-                            </div>
+                        <div class="location-marker north" style="top: 25%; left: 50%;" data-area="Manyata Tech Park">
+                            <div class="marker-dot"></div>
+                            <div class="marker-label">Manyata</div>
+                        </div>
+                        <div class="location-marker north" style="top: 30%; left: 42%;" data-area="Yeshwanthpur">
+                            <div class="marker-dot"></div>
+                            <div class="marker-label">Yeshwanthpur</div>
+                        </div>
+
+                        <div class="location-marker east" style="top: 35%; left: 60%;" data-area="Whitefield">
+                            <div class="marker-dot"></div>
+                            <div class="marker-label">Whitefield</div>
+                        </div>
+                        <div class="location-marker east" style="top: 40%; left: 58%;" data-area="KR Puram">
+                            <div class="marker-dot"></div>
+                            <div class="marker-label">KR Puram</div>
+                        </div>
+                        <div class="location-marker east" style="top: 45%; left: 55%;" data-area="Indiranagar">
+                            <div class="marker-dot"></div>
+                            <div class="marker-label">Indiranagar</div>
+                        </div>
+                        <div class="location-marker east" style="top: 50%; left: 62%;" data-area="Marathahalli">
+                            <div class="marker-dot"></div>
+                            <div class="marker-label">Marathahalli</div>
+                        </div>
+
+                        <div class="location-marker central" style="top: 45%; left: 46%;" data-area="MG Road">
+                            <div class="marker-dot"></div>
+                            <div class="marker-label">MG Road</div>
+                        </div>
+                        <div class="location-marker central" style="top: 50%; left: 48%;" data-area="Koramangala">
+                            <div class="marker-dot"></div>
+                            <div class="marker-label">Koramangala</div>
+                        </div>
+                        <div class="location-marker central" style="top: 55%; left: 45%;" data-area="HSR Layout">
+                            <div class="marker-dot"></div>
+                            <div class="marker-label">HSR Layout</div>
+                        </div>
+                        <div class="location-marker central" style="top: 42%; left: 44%;" data-area="Malleswaram">
+                            <div class="marker-dot"></div>
+                            <div class="marker-label">Malleswaram</div>
+                        </div>
+
+                        <div class="location-marker south" style="top: 65%; left: 48%;" data-area="JP Nagar">
+                            <div class="marker-dot"></div>
+                            <div class="marker-label">JP Nagar</div>
+                        </div>
+                        <div class="location-marker south" style="top: 70%; left: 50%;" data-area="Bannerghatta Road">
+                            <div class="marker-dot"></div>
+                            <div class="marker-label">Bannerghatta Rd</div>
+                        </div>
+                        <div class="location-marker south" style="top: 68%; left: 53%;" data-area="BTM Layout">
+                            <div class="marker-dot"></div>
+                            <div class="marker-label">BTM Layout</div>
+                        </div>
+                        <div class="location-marker south" style="top: 72%; left: 55%;" data-area="Electronic City">
+                            <div class="marker-dot"></div>
+                            <div class="marker-label">Electronic City</div>
+                        </div>
+                        <div class="location-marker south" style="top: 60%; left: 58%;" data-area="Sarjapur Road">
+                            <div class="marker-dot"></div>
+                            <div class="marker-label">Sarjapur Rd</div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="selected-area-display">
-                <div id="selectedArea" class="selected-area">Click on any area to see details</div>
+                <div id="selectedArea" class="selected-area">Click on any location to see details</div>
+            </div>
+            <div class="map-legend">
+                <h4>Areas We Serve</h4>
+                <div class="legend-items">
+                    <div class="legend-item">
+                        <span class="legend-color north"></span>
+                        <span>North Bangalore</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color east"></span>
+                        <span>East Bangalore</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color central"></span>
+                        <span>Central Bangalore</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color south"></span>
+                        <span>South Bangalore</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -600,55 +675,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Consultation Modal -->
-    <div id="consultationModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>BOOK YOUR FREE CONSULTATION</h2>
-            <p>Speak with our real estate expert and get personalized guidance</p>
-            <form id="consultationForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdh0FpPUNTjz-28Bk-zv989NRgywdvY8Pyjpa5WIPD-AVctGA/viewform?usp=header" method="POST" target="_blank">
-                <div class="form-group">
-                    <input type="text" name="entry.123456789" placeholder="Full Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="entry.987654321" placeholder="Email Address" required>
-                </div>
-                <div class="form-group">
-                    <input type="tel" name="entry.555555555" placeholder="Phone Number" required>
-                </div>
-                <div class="form-group">
-                    <select name="entry.111111111" required>
-                        <option value="">Preferred Budget Range</option>
-                        <option value="50-80">50-80 Lakhs</option>
-                        <option value="80-1.2">80 Lakhs - 1.2 Cr</option>
-                        <option value="1.2-2">1.2 - 2 Cr</option>
-                        <option value="2+">2 Cr+</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <select name="entry.222222222" required>
-                        <option value="">Preferred Location in Bangalore</option>
-                        <option value="whitefield">Whitefield</option>
-                        <option value="sarjapur">Sarjapur Road</option>
-                        <option value="electronic-city">Electronic City</option>
-                        <option value="hebbal">Hebbal</option>
-                        <option value="marathahalli">Marathahalli</option>
-                        <option value="koramangala">Koramangala</option>
-                        <option value="hsr">HSR Layout</option>
-                        <option value="jp-nagar">JP Nagar</option>
-                        <option value="btm">BTM Layout</option>
-                        <option value="yelahanka">Yelahanka</option>
-                        <option value="other">Other Areas</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <textarea name="entry.333333333" placeholder="Any specific requirements? (optional)" rows="3"></textarea>
-                </div>
-                <button type="submit" class="btn-primary">SCHEDULE MY CONSULTATION</button>
-            </form>
-        </div>
-    </div>
 
     <!-- WhatsApp Float -->
     <div class="whatsapp-float" onclick="openWhatsApp()">
