@@ -54,27 +54,29 @@ window.addEventListener('click', (e) => {
     }
 });
 
-// Smooth scrolling functions
-function scrollToConsultation() {
-    openConsultationModal();
+// Open Google Form directly
+function openConsultationForm() {
+    window.open('https://docs.google.com/forms/d/e/1FAIpQLSdh0FpPUNTjz-28Bk-zv989NRgywdvY8Pyjpa5WIPD-AVctGA/viewform?usp=header', '_blank');
 }
 
-// Form submission
-consultationForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(consultationForm);
-    const data = Object.fromEntries(formData);
-    
-    // Here you would typically send the data to your backend
-    console.log('Consultation form submitted:', data);
-    
-    // Show success message
-    alert('Thank you! Our real estate expert will contact you within 30 minutes to schedule your free consultation.');
-    closeConsultationModal();
-    consultationForm.reset();
-});
+// Form submission (for modal form if needed)
+if (consultationForm) {
+    consultationForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(consultationForm);
+        const data = Object.fromEntries(formData);
+        
+        // Here you would typically send the data to your backend
+        console.log('Consultation form submitted:', data);
+        
+        // Show success message
+        alert('Thank you! Our real estate expert will contact you within 30 minutes to schedule your free consultation.');
+        closeConsultationModal();
+        consultationForm.reset();
+    });
+}
 
 // WhatsApp integration
 function openWhatsApp() {
@@ -218,48 +220,21 @@ function addRippleEffect() {
     });
 }
 
-// Simplified Map functionality
+// Simple Map functionality
 function initMapInteractions() {
-    const markers = document.querySelectorAll('.map-marker');
+    const areaItems = document.querySelectorAll('.area-item');
+    const selectedAreaDisplay = document.getElementById('selectedArea');
     
-    // Marker click functionality
-    markers.forEach(marker => {
-        marker.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const area = marker.getAttribute('data-area');
-            openConsultationModal();
+    areaItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const areaName = item.getAttribute('data-area');
+            selectedAreaDisplay.textContent = `Selected Area: ${areaName}`;
+            selectedAreaDisplay.style.animation = 'pulse 0.5s ease';
             
-            // Set the selected area in the form
+            // Remove animation after it completes
             setTimeout(() => {
-                const locationSelect = document.querySelector('select');
-                if (locationSelect) {
-                    for (let option of locationSelect.options) {
-                        if (option.text.toLowerCase().includes(area.toLowerCase()) || 
-                            area.toLowerCase().includes(option.text.toLowerCase())) {
-                            locationSelect.value = option.value;
-                            break;
-                        }
-                    }
-                    
-                    // If no match found, set to "Other Areas" and populate textarea
-                    if (locationSelect.value === '') {
-                        locationSelect.value = 'other';
-                        const textarea = document.querySelector('textarea');
-                        if (textarea) {
-                            textarea.value = `Interested in properties in ${area}`;
-                        }
-                    }
-                }
-            }, 100);
-        });
-        
-        // Add hover effects
-        marker.addEventListener('mouseenter', () => {
-            marker.style.zIndex = '100';
-        });
-        
-        marker.addEventListener('mouseleave', () => {
-            marker.style.zIndex = '5';
+                selectedAreaDisplay.style.animation = '';
+            }, 500);
         });
     });
 }
