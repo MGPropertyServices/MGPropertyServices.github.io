@@ -1090,9 +1090,7 @@ body {
 .bangalore-map {
     position: relative;
     height: 600px;
-    background: 
-        linear-gradient(135deg, #e8f4f8 0%, #c8e1e8 100%),
-        repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.1) 10px, rgba(255,255,255,0.1) 20px);
+    background: var(--white);
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid #ddd;
@@ -1100,303 +1098,132 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-/* Map Legend */
-.map-legend {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 10;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    padding: 16px;
-    border: 1px solid #e0e0e0;
-    min-width: 180px;
+.simple-map {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    height: 100%;
+    gap: 1px;
+    background: var(--border);
 }
 
-.map-legend h4 {
-    margin: 0 0 12px 0;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--primary);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.legend-items {
+.map-region {
+    background: var(--white);
+    padding: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-.legend-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    color: #666;
+.map-region:hover {
+    background: var(--light);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    z-index: 2;
 }
 
-.legend-color {
-    width: 12px;
-    height: 12px;
-    border-radius: 2px;
-    border: 1px solid rgba(0,0,0,0.1);
-}
-
-.legend-color.residential {
-    background: #4285F4;
-}
-
-.legend-color.commercial {
-    background: #34A853;
-}
-
-.legend-color.premium {
-    background: #FBBC05;
-}
-
-/* Map Overlay Elements */
-.map-overlay {
+.map-region::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-/* Roads */
-.road {
-    position: absolute;
     height: 4px;
-    background: #ff6b35;
-    opacity: 0.8;
-    border-radius: 2px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
-.road.outer-ring-road {
-    background: #ff6b35;
-    height: 6px;
+.map-region.north::before {
+    background: #4285F4;
 }
 
-.road.mg-road {
-    background: #4a90e2;
+.map-region.east::before {
+    background: #34A853;
 }
 
-.road.hosur-road {
-    background: #4a90e2;
+.map-region.central::before {
+    background: #FBBC05;
 }
 
-.road.bellary-road {
-    background: #4a90e2;
+.map-region.south::before {
+    background: #EA4335;
 }
 
-/* Water Bodies */
-.water-body {
-    position: absolute;
-    width: 80px;
-    height: 60px;
-    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-    border-radius: 8px;
-    opacity: 0.7;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.water-body.ulsoor-lake {
-    width: 100px;
-    height: 40px;
-}
-
-.water-body.sankey-tank {
-    width: 60px;
-    height: 50px;
-}
-
-/* Green Areas */
-.green-area {
-    position: absolute;
-    width: 120px;
-    height: 80px;
-    background: linear-gradient(135deg, #34A853 0%, #2E8B47 100%);
-    border-radius: 10px;
-    opacity: 0.6;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.green-area.cubbon-park {
-    width: 150px;
-    height: 100px;
-}
-
-.green-area.lalbagh {
-    width: 130px;
-    height: 90px;
-}
-
-/* Map Markers */
-.map-marker {
-    position: absolute;
-    transform: translate(-50%, -100%);
-    cursor: pointer;
-    z-index: 5;
-    transition: all 0.3s ease;
-}
-
-.map-marker:hover {
-    transform: translate(-50%, -100%) scale(1.1);
-    z-index: 6;
-}
-
-.map-marker:hover .marker-tooltip {
-    opacity: 1;
-    visibility: visible;
-    transform: translate(-50%, -10px);
-}
-
-.marker-pin {
-    width: 24px;
-    height: 24px;
-    background: currentColor;
-    border: 3px solid white;
-    border-radius: 50% 50% 50% 0;
-    transform: rotate(-45deg);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    position: relative;
-}
-
-.marker-pin::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 8px;
-    height: 8px;
-    background: white;
-    border-radius: 50%;
-}
-
-.map-marker.residential .marker-pin {
-    color: #4285F4;
-}
-
-.map-marker.commercial .marker-pin {
-    color: #34A853;
-}
-
-.map-marker.premium .marker-pin {
-    color: #FBBC05;
-}
-
-.marker-tooltip {
-    position: absolute;
-    top: -45px;
-    left: 50%;
-    transform: translate(-50%, -20px);
-    background: var(--primary);
-    color: white;
-    padding: 8px 12px;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 600;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    pointer-events: none;
-}
-
-.marker-tooltip::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 6px solid transparent;
-    border-top-color: var(--primary);
-}
-
-/* Map Attribution */
-.map-attribution {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-size: 11px;
-    color: #666;
-    z-index: 5;
-    border: 1px solid rgba(0,0,0,0.1);
-}
-
-/* Locations List */
-.locations-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.location-group h4 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    font-family: 'Inter', sans-serif;
+.map-region h4 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    font-family: 'Inter', sans-serif;
+}
+
+.region-areas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.area-item {
+    background: var(--white);
+    border: 2px solid var(--border);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--dark);
+}
+
+.area-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.map-region.north .area-item:hover {
+    background: #4285F4;
+    color: white;
+    border-color: #4285F4;
+}
+
+.map-region.east .area-item:hover {
+    background: #34A853;
+    color: white;
+    border-color: #34A853;
+}
+
+.map-region.central .area-item:hover {
+    background: #FBBC05;
     color: var(--primary);
+    border-color: #FBBC05;
+}
+
+.map-region.south .area-item:hover {
+    background: #EA4335;
+    color: white;
+    border-color: #EA4335;
+}
+
+.selected-area-display {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.selected-area {
+    background: var(--gradient-accent);
+    color: var(--primary);
+    padding: 1.5rem 2rem;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    min-height: 80px;
     display: flex;
     align-items: center;
-    gap: 8px;
-}
-
-.location-group h4::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: currentColor;
-}
-
-.location-group:nth-child(1) h4 { color: #4285F4; }
-.location-group:nth-child(2) h4 { color: #34A853; }
-.location-group:nth-child(3) h4 { color: #FBBC05; }
-.location-group:nth-child(4) h4 { color: #EA4335; }
-.location-group:nth-child(5) h4 { color: #8B5CF6; }
-
-.location-group p {
-    color: var(--gray);
-    line-height: 1.6;
-    font-size: 0.9rem;
-}
-
-/* Map Animation */
-@keyframes pulse-marker {
-    0% {
-        box-shadow: 0 0 0 0 rgba(66, 133, 244, 0.4);
-    }
-    70% {
-        box-shadow: 0 0 0 10px rgba(66, 133, 244, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(66, 133, 244, 0);
-    }
-}
-
-.map-marker.residential .marker-pin {
-    animation: pulse-marker 2s infinite;
-}
-
-.map-marker.commercial .marker-pin {
-    animation: pulse-marker 2s infinite 0.5s;
-}
-
-.map-marker.premium .marker-pin {
-    animation: pulse-marker 2s infinite 1s;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
 }
 
 /* Final CTA Section */
@@ -1939,37 +1766,35 @@ body {
     }
 
     .bangalore-map {
-        height: 400px;
+        height: 800px;
     }
     
-    .map-legend {
-        top: 10px;
-        left: 10px;
-        padding: 12px;
-        min-width: 150px;
-    }
-    
-    .map-legend h4 {
-        font-size: 12px;
-        margin-bottom: 8px;
-    }
-    
-    .legend-item {
-        font-size: 11px;
-    }
-    
-    .marker-pin {
-        width: 20px;
-        height: 20px;
-    }
-    
-    .marker-tooltip {
-        font-size: 11px;
-        padding: 6px 10px;
-    }
-    
-    .locations-list {
+    .simple-map {
         grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+    }
+    
+    .map-region {
+        padding: 1.5rem;
+    }
+    
+    .map-region h4 {
+        font-size: 1.1rem;
+    }
+    
+    .region-areas {
+        gap: 0.6rem;
+    }
+    
+    .area-item {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+    
+    .selected-area {
+        font-size: 1rem;
+        padding: 1rem 1.5rem;
+        min-height: 60px;
     }
 }
 
@@ -2031,29 +1856,24 @@ body {
     }
 
     .bangalore-map {
-        height: 350px;
+        height: 700px;
     }
     
-    .map-legend {
-        top: 10px;
-        left: 10px;
-        right: 10px;
-        min-width: auto;
+    .map-region {
+        padding: 1rem;
     }
     
-    .legend-items {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 12px;
+    .map-region h4 {
+        font-size: 1rem;
+        margin-bottom: 1rem;
     }
     
-    .marker-pin {
-        width: 18px;
-        height: 18px;
+    .region-areas {
+        gap: 0.5rem;
     }
     
-    .marker-tooltip {
-        font-size: 10px;
-        padding: 4px 8px;
+    .area-item {
+        font-size: 0.75rem;
+        padding: 5px 10px;
     }
 }
