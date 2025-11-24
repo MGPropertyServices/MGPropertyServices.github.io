@@ -1050,7 +1050,7 @@ body {
 
 .bangalore-map {
     position: relative;
-    height: 600px;
+    height: 500px;
     background: var(--white);
     border-radius: 12px;
     overflow: hidden;
@@ -1059,112 +1059,164 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-.simple-map {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    height: 100%;
-    gap: 1px;
-    background: var(--border);
-}
-
-.map-region {
-    background: var(--white);
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.map-region:hover {
-    background: var(--light);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    z-index: 2;
-}
-
-.map-region::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+.realistic-map {
     width: 100%;
-    height: 4px;
+    height: 100%;
+    position: relative;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
-.map-region.north::before {
-    background: #4285F4;
+.map-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
-.map-region.east::before {
-    background: #34A853;
+.map-outline {
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    background: #ffffff;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-.map-region.central::before {
-    background: #FBBC05;
+.map-area {
+    position: absolute;
+    border: 1px dashed #adb5bd;
+    border-radius: 4px;
+    transition: all 0.3s ease;
 }
 
-.map-region.south::before {
-    background: #EA4335;
+.map-area.north {
+    top: 10%;
+    left: 30%;
+    width: 40%;
+    height: 25%;
+    background: rgba(66, 133, 244, 0.1);
 }
 
-.map-region h4 {
-    font-size: 1.3rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-    color: var(--primary);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-family: 'Inter', sans-serif;
+.map-area.east {
+    top: 35%;
+    left: 70%;
+    width: 25%;
+    height: 40%;
+    background: rgba(52, 168, 83, 0.1);
 }
 
-.region-areas {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
+.map-area.central {
+    top: 35%;
+    left: 30%;
+    width: 40%;
+    height: 30%;
+    background: rgba(251, 188, 5, 0.1);
 }
 
-.area-item {
+.map-area.south {
+    top: 65%;
+    left: 30%;
+    width: 40%;
+    height: 25%;
+    background: rgba(234, 67, 53, 0.1);
+}
+
+.area-point {
+    position: absolute;
     background: var(--white);
-    border: 2px solid var(--border);
-    padding: 8px 16px;
+    border: 2px solid;
     border-radius: 20px;
-    font-size: 0.9rem;
+    padding: 6px 12px;
+    font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    color: var(--dark);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 2;
+    white-space: nowrap;
 }
 
-.area-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+.area-point:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 3;
 }
 
-.map-region.north .area-item:hover {
-    background: #4285F4;
-    color: white;
-    border-color: #4285F4;
+/* North Bangalore Points */
+.hebbal { top: 20%; left: 40%; border-color: #4285F4; color: #4285F4; }
+.yelahanka { top: 60%; left: 50%; border-color: #4285F4; color: #4285F4; }
+.manyata { top: 30%; left: 60%; border-color: #4285F4; color: #4285F4; }
+.jalahalli { top: 40%; left: 30%; border-color: #4285F4; color: #4285F4; }
+.yeshwanthpur { top: 50%; left: 20%; border-color: #4285F4; color: #4285F4; }
+
+/* East Bangalore Points */
+.whitefield { top: 30%; left: 60%; border-color: #34A853; color: #34A853; }
+.kr-puram { top: 50%; left: 40%; border-color: #34A853; color: #34A853; }
+.marathahalli { top: 60%; left: 30%; border-color: #34A853; color: #34A853; }
+.indiranagar { top: 20%; left: 20%; border-color: #34A853; color: #34A853; }
+.bellandur { top: 70%; left: 50%; border-color: #34A853; color: #34A853; }
+
+/* Central Bangalore Points */
+.mg-road { top: 40%; left: 50%; border-color: #FBBC05; color: #FBBC05; }
+.koramangala { top: 60%; left: 40%; border-color: #FBBC05; color: #FBBC05; }
+.hsr { top: 70%; left: 60%; border-color: #FBBC05; color: #FBBC05; }
+.jayanagar { top: 80%; left: 30%; border-color: #FBBC05; color: #FBBC05; }
+.malleswaram { top: 20%; left: 30%; border-color: #FBBC05; color: #FBBC05; }
+
+/* South Bangalore Points */
+.jp-nagar { top: 70%; left: 40%; border-color: #EA4335; color: #EA4335; }
+.bannerghatta { top: 80%; left: 60%; border-color: #EA4335; color: #EA4335; }
+.btm { top: 60%; left: 50%; border-color: #EA4335; color: #EA4335; }
+.electronic-city { top: 90%; left: 70%; border-color: #EA4335; color: #EA4335; }
+.sarjapur { top: 50%; left: 80%; border-color: #EA4335; color: #EA4335; }
+
+.location-list {
+    margin-top: 3rem;
 }
 
-.map-region.east .area-item:hover {
-    background: #34A853;
-    color: white;
-    border-color: #34A853;
-}
-
-.map-region.central .area-item:hover {
-    background: #FBBC05;
+.location-list h3 {
+    text-align: center;
+    margin-bottom: 2rem;
     color: var(--primary);
-    border-color: #FBBC05;
+    font-size: 1.8rem;
+    font-weight: 700;
 }
 
-.map-region.south .area-item:hover {
-    background: #EA4335;
-    color: white;
-    border-color: #EA4335;
+.location-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.location-column h4 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent);
+}
+
+.location-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.location-items span {
+    padding: 8px 12px;
+    background: var(--white);
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-left: 3px solid var(--accent);
+}
+
+.location-items span:hover {
+    background: var(--accent-light);
+    transform: translateX(5px);
 }
 
 .selected-area-display {
@@ -1635,29 +1687,16 @@ body {
     }
 
     .bangalore-map {
-        height: 800px;
+        height: 400px;
     }
     
-    .simple-map {
+    .area-point {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+    }
+    
+    .location-grid {
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(4, 1fr);
-    }
-    
-    .map-region {
-        padding: 1.5rem;
-    }
-    
-    .map-region h4 {
-        font-size: 1.1rem;
-    }
-    
-    .region-areas {
-        gap: 0.6rem;
-    }
-    
-    .area-item {
-        font-size: 0.8rem;
-        padding: 6px 12px;
     }
     
     .selected-area {
@@ -1719,24 +1758,11 @@ body {
     }
 
     .bangalore-map {
-        height: 700px;
+        height: 350px;
     }
     
-    .map-region {
-        padding: 1rem;
-    }
-    
-    .map-region h4 {
-        font-size: 1rem;
-        margin-bottom: 1rem;
-    }
-    
-    .region-areas {
-        gap: 0.5rem;
-    }
-    
-    .area-item {
-        font-size: 0.75rem;
-        padding: 5px 10px;
+    .area-point {
+        font-size: 0.6rem;
+        padding: 3px 6px;
     }
 }
