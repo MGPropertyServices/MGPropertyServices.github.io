@@ -51,7 +51,7 @@
                     <button class="btn-primary" onclick="openGoogleForm()">
                         <i class="fas fa-home"></i> Find Your Perfect Home
                     </button>
-                    <button class="btn-secondary" onclick="openGoogleForm()">
+                    <button class="btn-secondary" onclick="callExpert()">
                         <i class="fas fa-headset"></i> Talk to an Expert
                     </button>
                 </div>
@@ -471,57 +471,129 @@
         <div class="container">
             <div class="section-header">
                 <h2>WE SERVE ALL OF BANGALORE</h2>
-                <p>Comprehensive coverage across prime locations in Bangalore</p>
+                <p>Comprehensive coverage across 50+ prime locations in Bangalore</p>
             </div>
             <div class="map-visual">
                 <div class="bangalore-map">
-                    <!-- Simple Map Design -->
-                    <div class="simple-map">
-                        <div class="map-region north">
-                            <h4>North Bangalore</h4>
-                            <div class="region-areas">
-                                <div class="area-item" data-area="Hebbal">Hebbal</div>
-                                <div class="area-item" data-area="Yelahanka">Yelahanka</div>
-                                <div class="area-item" data-area="Manyata Tech Park">Manyata Tech Park</div>
-                                <div class="area-item" data-area="Jalahalli">Jalahalli</div>
-                                <div class="area-item" data-area="Yeshwanthpur">Yeshwanthpur</div>
-                            </div>
-                        </div>
-                        <div class="map-region east">
-                            <h4>East Bangalore</h4>
-                            <div class="region-areas">
-                                <div class="area-item" data-area="Whitefield">Whitefield</div>
-                                <div class="area-item" data-area="KR Puram">KR Puram</div>
-                                <div class="area-item" data-area="Indiranagar">Indiranagar</div>
-                                <div class="area-item" data-area="Marathahalli">Marathahalli</div>
-                                <div class="area-item" data-area="CV Raman Nagar">CV Raman Nagar</div>
-                            </div>
-                        </div>
-                        <div class="map-region central">
-                            <h4>Central Bangalore</h4>
-                            <div class="region-areas">
-                                <div class="area-item" data-area="MG Road">MG Road</div>
-                                <div class="area-item" data-area="Koramangala">Koramangala</div>
-                                <div class="area-item" data-area="HSR Layout">HSR Layout</div>
-                                <div class="area-item" data-area="Jayanagar">Jayanagar</div>
-                                <div class="area-item" data-area="Malleswaram">Malleswaram</div>
-                            </div>
-                        </div>
-                        <div class="map-region south">
-                            <h4>South Bangalore</h4>
-                            <div class="region-areas">
-                                <div class="area-item" data-area="JP Nagar">JP Nagar</div>
-                                <div class="area-item" data-area="Bannerghatta Road">Bannerghatta Road</div>
-                                <div class="area-item" data-area="BTM Layout">BTM Layout</div>
-                                <div class="area-item" data-area="Electronic City">Electronic City</div>
-                                <div class="area-item" data-area="Sarjapur Road">Sarjapur Road</div>
+                    <!-- Realistic Bangalore Map Design -->
+                    <div class="realistic-map">
+                        <div class="map-container">
+                            <div class="map-outline">
+                                <!-- North Bangalore -->
+                                <div class="map-area north" data-region="North Bangalore">
+                                    <div class="area-point hebbal" data-area="Hebbal">Hebbal</div>
+                                    <div class="area-point yelahanka" data-area="Yelahanka">Yelahanka</div>
+                                    <div class="area-point manyata" data-area="Manyata Tech Park">Manyata</div>
+                                    <div class="area-point jalahalli" data-area="Jalahalli">Jalahalli</div>
+                                    <div class="area-point yeshwanthpur" data-area="Yeshwanthpur">Yeshwanthpur</div>
+                                </div>
+                                
+                                <!-- East Bangalore -->
+                                <div class="map-area east" data-region="East Bangalore">
+                                    <div class="area-point whitefield" data-area="Whitefield">Whitefield</div>
+                                    <div class="area-point kr-puram" data-area="KR Puram">KR Puram</div>
+                                    <div class="area-point marathahalli" data-area="Marathahalli">Marathahalli</div>
+                                    <div class="area-point indiranagar" data-area="Indiranagar">Indiranagar</div>
+                                    <div class="area-point bellandur" data-area="Bellandur">Bellandur</div>
+                                </div>
+                                
+                                <!-- Central Bangalore -->
+                                <div class="map-area central" data-region="Central Bangalore">
+                                    <div class="area-point mg-road" data-area="MG Road">MG Road</div>
+                                    <div class="area-point koramangala" data-area="Koramangala">Koramangala</div>
+                                    <div class="area-point hsr" data-area="HSR Layout">HSR</div>
+                                    <div class="area-point jayanagar" data-area="Jayanagar">Jayanagar</div>
+                                    <div class="area-point malleswaram" data-area="Malleswaram">Malleswaram</div>
+                                </div>
+                                
+                                <!-- South Bangalore -->
+                                <div class="map-area south" data-region="South Bangalore">
+                                    <div class="area-point jp-nagar" data-area="JP Nagar">JP Nagar</div>
+                                    <div class="area-point bannerghatta" data-area="Bannerghatta Road">Bannerghatta</div>
+                                    <div class="area-point btm" data-area="BTM Layout">BTM</div>
+                                    <div class="area-point electronic-city" data-area="Electronic City">Electronic City</div>
+                                    <div class="area-point sarjapur" data-area="Sarjapur Road">Sarjapur</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="selected-area-display">
-                <div id="selectedArea" class="selected-area">Click on any area to see details</div>
+                <div id="selectedArea" class="selected-area">Click on any location to see properties available</div>
+            </div>
+            <div class="location-list">
+                <h3>All Service Areas in Bangalore</h3>
+                <div class="location-grid">
+                    <div class="location-column">
+                        <h4>North Bangalore</h4>
+                        <div class="location-items">
+                            <span>Hebbal</span>
+                            <span>Yelahanka</span>
+                            <span>Manyata Tech Park</span>
+                            <span>Jalahalli</span>
+                            <span>Yeshwanthpur</span>
+                            <span>Sahakar Nagar</span>
+                            <span>RT Nagar</span>
+                            <span>HBR Layout</span>
+                            <span>Nagavara</span>
+                            <span>Thanisandra</span>
+                            <span>Kothanur</span>
+                            <span>Vidyaranyapura</span>
+                        </div>
+                    </div>
+                    <div class="location-column">
+                        <h4>East Bangalore</h4>
+                        <div class="location-items">
+                            <span>Whitefield</span>
+                            <span>KR Puram</span>
+                            <span>Indiranagar</span>
+                            <span>Marathahalli</span>
+                            <span>CV Raman Nagar</span>
+                            <span>Mahadevapura</span>
+                            <span>Hoodi</span>
+                            <span>Kadugodi</span>
+                            <span>Varthur</span>
+                            <span>Bellandur</span>
+                            <span>Brookefield</span>
+                            <span>Ramamurthy Nagar</span>
+                        </div>
+                    </div>
+                    <div class="location-column">
+                        <h4>Central Bangalore</h4>
+                        <div class="location-items">
+                            <span>MG Road</span>
+                            <span>Koramangala</span>
+                            <span>HSR Layout</span>
+                            <span>Jayanagar</span>
+                            <span>Malleswaram</span>
+                            <span>Basavanagudi</span>
+                            <span>Shivajinagar</span>
+                            <span>Richmond Town</span>
+                            <span>Lavelle Road</span>
+                            <span>Ulsoor</span>
+                            <span>Cox Town</span>
+                            <span>Frazer Town</span>
+                        </div>
+                    </div>
+                    <div class="location-column">
+                        <h4>South Bangalore</h4>
+                        <div class="location-items">
+                            <span>JP Nagar</span>
+                            <span>Bannerghatta Road</span>
+                            <span>BTM Layout</span>
+                            <span>Electronic City</span>
+                            <span>Sarjapur Road</span>
+                            <span>Jakkasandra</span>
+                            <span>Hulimavu</span>
+                            <span>Kanakapura Road</span>
+                            <span>Uttarahalli</span>
+                            <span>Kengeri</span>
+                            <span>Rajarajeshwari Nagar</span>
+                            <span>Banashankari</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
