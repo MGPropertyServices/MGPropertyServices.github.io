@@ -54,31 +54,11 @@ window.addEventListener('click', (e) => {
     }
 });
 
-// Google Form Integration
-function openGoogleForm() {
-    window.open('https://docs.google.com/forms/d/e/1FAIpQLSdh0FpPUNTjz-28Bk-zv989NRgywdvY8Pyjpa5WIPD-AVctGA/viewform?usp=header', '_blank');
-}
-
-// WhatsApp Integration
-function openWhatsApp() {
-    const phoneNumber = '919880166879';
-    const message = 'Hello! I would like to know more about your property services.';
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
-}
-
-// Call functionality
-function makeCall() {
-    window.location.href = 'tel:+919880166879';
-}
-
-// Add click event to call button
-const callButton = document.querySelector('.call-button');
-if (callButton) {
-    callButton.addEventListener('click', makeCall);
-}
-
 // Smooth scrolling
+function scrollToBooking() {
+    openModal();
+}
+
 function scrollToStages() {
     document.getElementById('stages').scrollIntoView({
         behavior: 'smooth'
@@ -271,7 +251,7 @@ function animateCounters() {
     const counters = document.querySelectorAll('.metric-item h3');
     
     counters.forEach((counter, index) => {
-        const target = parseInt(counter.textContent.replace('+', ''));
+        const target = 100;
         let current = 0;
         const increment = target / 50;
         
@@ -342,7 +322,7 @@ window.addEventListener('scroll', () => {
 // Add hover effects to interactive elements
 document.addEventListener('DOMContentLoaded', () => {
     // Add ripple effect to buttons
-    const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .nav-button, .contact-button');
+    const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .nav-button');
     buttons.forEach(button => {
         button.addEventListener('click', function(e) {
             const ripple = document.createElement('span');
@@ -362,6 +342,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 ripple.remove();
             }, 600);
         });
+    });
+
+    // Add tooltips to floating icons
+    const floatingIcons = document.querySelectorAll('.floating-icon');
+    floatingIcons.forEach(icon => {
+        if (icon.classList.contains('call-icon')) {
+            icon.setAttribute('data-tooltip', 'Call Us');
+        } else if (icon.classList.contains('whatsapp-icon')) {
+            icon.setAttribute('data-tooltip', 'WhatsApp Us');
+        }
     });
 });
 
@@ -388,7 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         
-        .btn-primary, .btn-secondary, .nav-button, .contact-button {
+        .btn-primary, .btn-secondary, .nav-button {
             position: relative;
             overflow: hidden;
         }
