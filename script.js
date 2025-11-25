@@ -31,56 +31,17 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Modal functionality
-const modal = document.getElementById('bookingModal');
-const closeBtn = document.querySelector('.close');
-const bookingForm = document.getElementById('bookingForm');
-
-function openModal() {
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
+// Open Google Form
+function openGoogleForm() {
+    window.open('https://docs.google.com/forms/d/e/1FAIpQLSdh0FpPUNTjz-28Bk-zv989NRgywdvY8Pyjpa5WIPD-AVctGA/viewform?usp=header', '_blank');
 }
-
-function closeModal() {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-
-closeBtn.addEventListener('click', closeModal);
-
-window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        closeModal();
-    }
-});
 
 // Smooth scrolling
-function scrollToBooking() {
-    openModal();
-}
-
 function scrollToStages() {
     document.getElementById('stages').scrollIntoView({
         behavior: 'smooth'
     });
 }
-
-// Form submission
-bookingForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(bookingForm);
-    const data = Object.fromEntries(formData);
-    
-    // Here you would typically send the data to your backend
-    console.log('Form submitted:', data);
-    
-    // Show success message
-    alert('Thank you! Our property expert will contact you within 24 hours to start your home buying journey.');
-    closeModal();
-    bookingForm.reset();
-});
 
 // Comparison Tabs
 class ComparisonTabs {
@@ -322,7 +283,7 @@ window.addEventListener('scroll', () => {
 // Add hover effects to interactive elements
 document.addEventListener('DOMContentLoaded', () => {
     // Add ripple effect to buttons
-    const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .nav-button');
+    const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .nav-button, .btn-whatsapp');
     buttons.forEach(button => {
         button.addEventListener('click', function(e) {
             const ripple = document.createElement('span');
@@ -378,7 +339,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         
-        .btn-primary, .btn-secondary, .nav-button {
+        .btn-primary, .btn-secondary, .nav-button, .btn-whatsapp {
             position: relative;
             overflow: hidden;
         }
