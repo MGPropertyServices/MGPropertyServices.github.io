@@ -33,7 +33,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Google Forms Integration - FIXED AND WORKING
+// Google Forms Integration - UPDATED GOOGLE FORM LINK
 function openGoogleForm() {
     window.open('https://docs.google.com/forms/d/e/1FAIpQLSdh0FpPUNTjz-28Bk-zv989NRgywdvY8Pyjpa5WIPD-AVctGA/viewform?usp=header', '_blank');
 }
