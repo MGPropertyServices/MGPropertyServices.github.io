@@ -14,6 +14,8 @@
     --gray: #6b7280;
     --border: #e5e7eb;
     --success: #10b981;
+    --whatsapp: #25D366;
+    --call: #007bff;
 }
 
 body {
@@ -29,6 +31,95 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+/* Floating Contact Buttons */
+.floating-contact-buttons {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-button {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 50px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    min-width: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.contact-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s;
+}
+
+.contact-button:hover::before {
+    left: 100%;
+}
+
+.call-button {
+    background: linear-gradient(135deg, var(--call), #0056b3);
+    color: white;
+}
+
+.whatsapp-button {
+    background: linear-gradient(135deg, var(--whatsapp), #128C7E);
+    color: white;
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.contact-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.contact-text span {
+    font-weight: 800;
+    font-size: 1rem;
+    margin-bottom: 2px;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-text small {
+    font-weight: 600;
+    font-size: 0.8rem;
+    opacity: 0.9;
 }
 
 /* Navigation - FIXED ALIGNMENT */
@@ -1318,6 +1409,38 @@ body {
     color: var(--accent);
 }
 
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.social-link.whatsapp {
+    background: var(--whatsapp);
+}
+
+.social-link.phone {
+    background: var(--call);
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
 .footer-bottom {
     text-align: center;
     padding-top: 3rem;
@@ -1456,6 +1579,37 @@ body {
 
 /* Responsive Design - Mobile Fixes */
 @media (max-width: 768px) {
+    /* Floating Contact Buttons Mobile */
+    .floating-contact-buttons {
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .contact-button {
+        min-width: auto;
+        flex: 1;
+        margin: 0 5px;
+        padding: 12px 15px;
+    }
+    
+    .contact-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+        margin-right: 10px;
+    }
+    
+    .contact-text span {
+        font-size: 0.85rem;
+    }
+    
+    .contact-text small {
+        font-size: 0.7rem;
+    }
+
     .nav-menu {
         position: fixed;
         top: 0;
@@ -1639,6 +1793,31 @@ body {
 }
 
 @media (max-width: 480px) {
+    .floating-contact-buttons {
+        bottom: 15px;
+        left: 15px;
+        right: 15px;
+    }
+    
+    .contact-button {
+        padding: 10px 12px;
+    }
+    
+    .contact-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+        margin-right: 8px;
+    }
+    
+    .contact-text span {
+        font-size: 0.8rem;
+    }
+    
+    .contact-text small {
+        font-size: 0.65rem;
+    }
+
     .metrics-container {
         grid-template-columns: 1fr;
     }
