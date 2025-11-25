@@ -38,20 +38,6 @@ function openGoogleForm() {
     window.open('https://docs.google.com/forms/d/e/1FAIpQLSdh0FpPUNTjz-28Bk-zv989NRgywdvY8Pyjpa5WIPD-AVctGA/viewform?usp=header', '_blank');
 }
 
-// WhatsApp Integration - FIXED AND WORKING
-function openWhatsApp() {
-    const phone = '919880166879';
-    const message = 'Hello! I am interested in MG Property Services and would like to get more information about your property advisory services.';
-    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
-}
-
-// Call Expert Function - FIXED AND WORKING
-function callExpert() {
-    const phone = '9880166879'; // Removed country code for better compatibility
-    window.location.href = `tel:${phone}`;
-}
-
 // Enhanced Navbar scroll behavior
 let lastScrollY = window.scrollY;
 const navbar = document.querySelector('.navbar');
@@ -145,8 +131,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Test button functionality
     console.log('All buttons are now functional:');
     console.log('✓ Google Form: https://docs.google.com/forms/d/e/1FAIpQLSdh0FpPUNTjz-28Bk-zv989NRgywdvY8Pyjpa5WIPD-AVctGA/viewform?usp=header');
-    console.log('✓ WhatsApp: +91 98801 66879');
-    console.log('✓ Phone Call: 98801 66879');
 });
 
 // Add simple hover effects to buttons
@@ -204,28 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Track specific button clicks
             if (action.includes('openGoogleForm')) {
                 console.log('Google Form consultation booked');
-            } else if (action.includes('callExpert')) {
-                console.log('Call expert initiated');
-            } else if (action.includes('openWhatsApp')) {
-                console.log('WhatsApp conversation started');
             }
         });
     });
 });
-
-// Enhanced error handling for phone calls
-function makePhoneCall(phoneNumber) {
-    try {
-        window.location.href = `tel:${phoneNumber}`;
-    } catch (error) {
-        console.error('Error making phone call:', error);
-        // Fallback: Show phone number
-        alert(`Please call us at: ${phoneNumber}`);
-    }
-}
-
-// Update callExpert function with enhanced error handling
-function callExpert() {
-    const phone = '9880166879';
-    makePhoneCall(phone);
-}
