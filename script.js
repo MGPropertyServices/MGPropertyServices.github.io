@@ -59,6 +59,25 @@ function openGoogleForm() {
     window.open('https://docs.google.com/forms/d/e/1FAIpQLSdh0FpPUNTjz-28Bk-zv989NRgywdvY8Pyjpa5WIPD-AVctGA/viewform?usp=header', '_blank');
 }
 
+// WhatsApp Integration
+function openWhatsApp() {
+    const phoneNumber = '919880166879';
+    const message = 'Hello! I would like to know more about your property services.';
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+}
+
+// Call functionality
+function makeCall() {
+    window.location.href = 'tel:+919880166879';
+}
+
+// Add click event to call button
+const callButton = document.querySelector('.call-button');
+if (callButton) {
+    callButton.addEventListener('click', makeCall);
+}
+
 // Smooth scrolling
 function scrollToStages() {
     document.getElementById('stages').scrollIntoView({
@@ -252,7 +271,7 @@ function animateCounters() {
     const counters = document.querySelectorAll('.metric-item h3');
     
     counters.forEach((counter, index) => {
-        const target = 100;
+        const target = parseInt(counter.textContent.replace('+', ''));
         let current = 0;
         const increment = target / 50;
         
@@ -323,7 +342,7 @@ window.addEventListener('scroll', () => {
 // Add hover effects to interactive elements
 document.addEventListener('DOMContentLoaded', () => {
     // Add ripple effect to buttons
-    const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .nav-button');
+    const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .nav-button, .contact-button');
     buttons.forEach(button => {
         button.addEventListener('click', function(e) {
             const ripple = document.createElement('span');
@@ -369,7 +388,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         
-        .btn-primary, .btn-secondary, .nav-button {
+        .btn-primary, .btn-secondary, .nav-button, .contact-button {
             position: relative;
             overflow: hidden;
         }
